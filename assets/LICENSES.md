@@ -1,34 +1,28 @@
-# Photograph licences and elevation assignments
+# Photograph and font licences
 
-All selected photos are free photographs under the [Pexels License](https://www.pexels.com/license/), which permits commercial use and modification. Retrieved 24 October 2026. Stock people and properties are illustrative, not customers or endorsements. No paid generation or image APIs were used. No construction workers, hard hats or hi-vis photos remain.
+## Photographs
 
-Originals are **not checked into Git or served**. `node website/fetch-photos.mjs` fetches them to `/tmp/au-photo-sources` (override with `AU_PHOTO_SOURCES`). The CDN URL for each row is `https://images.pexels.com/photos/ID/pexels-photo-ID.jpeg`. `render-assets.mjs` makes compressed, metadata-free derivatives. Standard photography uses centered 3:2 crops; commercial uses x1800 y0 w4200 h3750 from the 6000×4000 original before resizing, excluding vehicles, plates and signs. None of the selected crops has a readable property number or street sign.
+The photo below is a free photograph under the [Pexels License](https://www.pexels.com/license/), which permits commercial use and modification. Retrieved 24 October 2026. It appears only inside two of the product screens on the homepage (review and approval, and the self-inspection phone), as one fictional example house. Stock properties are illustrative, not customers or endorsements. No paid generation or image APIs were used.
 
-| Derivatives | Photographer | Source photo page | Licence |
-| --- | --- | --- | --- |
-| hero-480/960 | Max Vakhtbovych | https://www.pexels.com/photo/house-near-plants-and-trees-on-lawn-7174110/ | Pexels |
-| field-480/960 | Max Vakhtbovych | https://www.pexels.com/photo/photo-of-a-house-exterior-7587882/ | Pexels |
-| inspector-480/960 | Max Vakhtbovych | https://www.pexels.com/photo/beautiful-brown-house-near-the-woods-7746548/ | Pexels |
-| front-960; intake, draft, approval | Max Vakhtbovych | https://www.pexels.com/photo/contemporary-country-house-facade-in-winter-7031406/ | Pexels |
-| right-960; intake | Max Vakhtbovych | https://www.pexels.com/photo/modern-cottage-house-with-parking-7031414/ | Pexels |
-| rear-960; intake, analysis, answer evidence | Max Vakhtbovych | https://www.pexels.com/photo/modern-residential-house-facade-in-countryside-7031405/ | Pexels |
-| desk-480/960 | Ron Lach | https://www.pexels.com/photo/a-high-angle-shot-at-documents-at-table-and-female-hands-9869392/ | Pexels |
-| commercial-480/960 | Jan Wright | https://www.pexels.com/photo/modern-commercial-building-exterior-with-cars-36757760/ | Pexels |
-| reviewer-480/960 | Kampus Production | https://www.pexels.com/photo/woman-in-yellow-long-sleeve-shirt-looking-at-computer-data-8204355/ | Pexels |
-| team-480/960 | Thirdman | https://www.pexels.com/photo/businessmen-writing-and-discussing-5256993/ | Pexels |
+The original is **not checked into Git or served**. `node website/fetch-photos.mjs` fetches it to `/tmp/au-photo-sources` (override with `AU_PHOTO_SOURCES`). The CDN URL is `https://images.pexels.com/photos/ID/pexels-photo-ID.jpeg`. `render-assets.mjs` makes a compressed, metadata-free 960×640 JPEG from a centered 3:2 crop. The crop has no readable property number or street sign.
 
-## One house, three distinct sides
+| Derivative | Used in | Photographer | Source photo page | Licence |
+| --- | --- | --- | --- | --- |
+| front-960.jpg | approval, self-inspection | Max Vakhtbovych | https://www.pexels.com/photo/contemporary-country-house-facade-in-winter-7031406/ | Pexels |
 
-The product screens use the same winter house from Max Vakhtbovych's January 8, 2019 shoot. Assignments are visual judgments, not surveyed bearings or a real customer's inspection:
+Work item #2888 cut the homepage to one message, and with it every photograph shown outside the product screens (Pexels 7174110, 7587882, 7746548, 9869392, 36757760, 8204355 and 5256993), the AVIF and WebP copies of the three elevations, and ten product screens. Its messaging revision on 27 October 2026 replaced the drafted report and photo intake screens with three restored from Git history (review and approval, the self-inspection phone and carrier connections), and removed the right and rear elevations (Pexels 7031414 and 7031405), which only the photo intake showed. Their sources and licences remain in this file's Git history.
 
-- **Front — 7031406:** centered entry doors and walkway approach. The carport is on the viewer's right. Pexels' generic description calls this a backyard view; the entrance/approach and corresponding terrace view support using it as Front under the owner's definition.
-- **Right — 7031414:** the carport elevation around the right-hand corner when standing at the entrance facing the house. This is an oblique view showing that distinct side and its connection to the front.
-- **Rear — 7031405:** the opposite elevation with broad garden glazing, terrace and pool; not another crop of the entry.
-- **Left — no photograph:** displayed as **Uploading** with an empty slot. No fourth elevation was verified. Repeated terrace angles (7031407, 7031408, 7031411–7031413) were not passed off as Left.
+### The example house
 
-The search included Max's profile, collections and related photographs, Curtis Adams' Pexels portfolio, and Francesca Tosolini and Zac Gudakov's Unsplash profiles. Three distinct elevations are used under the owner's explicit fallback instruction. Analysis, draft and approval all retain this same house. Findings, names, addresses and policy numbers are fictional examples. Roof/foundation uncertainties remain unresolved rather than inferred through snow; the later approval view illustrates a separately reviewed report version.
+The screens show the front of a winter house from Max Vakhtbovych's January 8, 2019 shoot (Pexels 7031406): centered entry doors and walkway approach, with the carport on the viewer's right. Pexels' generic description calls this a backyard view; the entrance/approach and corresponding terrace view support using it as Front under the owner's definition. That is a visual judgment, not a surveyed bearing or a real customer's inspection. Findings, names, addresses and policy numbers are fictional examples.
 
-## Self-hosted typeface
+Product screens are rendered from `screens/*.html` at 2× and served as WebP and PNG, the desktop screens at 360/640/800/1200/1600/2000 pixels and the self-inspection phone at 360/640/800. They contain only original interface artwork, fictional text and the photograph above.
+
+## Self-hosted typefaces
+
+Both faces are served locally with `font-display: swap`; visitors make no Google Fonts requests.
+
+### Inter Tight (body text and the product screens)
 
 `fonts/inter-tight-latin.woff2` is the Google Fonts Latin subset of Inter Tight, normal variable weight 400–600. Copyright 2022 The Inter Project Authors. Licensed under SIL Open Font License 1.1; the complete licence is checked in at `fonts/OFL.txt`.
 
@@ -36,6 +30,10 @@ The search included Max's profile, collections and related photographs, Curtis A
 - Source stylesheet: https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..600&display=swap (modern Chromium user agent)
 - Licence source: https://github.com/google/fonts/blob/main/ofl/intertight/OFL.txt
 
-The site serves this file locally with `font-display: swap`; visitors make no Google Fonts requests. Photographic derivatives now include AVIF, WebP and JPEG at 360/640/960 pixels (desk also 1440); product screenshots use WebP/PNG at 360/640/800/1200/1600/2000 pixels. Original source photographs remain outside Git.
+### Archivo ExtraBold (headlines)
 
-Work item #2860 reuses the licensed Front photograph (Max Vakhtbovych, Pexels 7031406, source and Pexels License recorded above) inside the guided self-inspection concept. Derivatives: `self-inspection-{360,640,800}.{webp,png}`, composed from the HTML/CSS phone screen. No new stock photos were added. Carrier connections, form library and commercial drafting screens contain only original interface artwork and fictional text.
+`fonts/archivo-800-latin.woff2` is the Google Fonts Latin subset of Archivo, a static ExtraBold (800) instance at normal width: 14,436 bytes, 302 glyphs, SHA-256 `2995622a3e4021e730bfea260fee758858342921930caab513363e8d316b64bc`. Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo). Licensed under SIL Open Font License 1.1; the complete licence is checked in at `fonts/archivo-OFL.txt`. Retrieved 27 October 2026 for work item #2888, because the bundled Inter Tight file stops at weight 600. The file is unmodified.
+
+- Font source: https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTtDRZ9xdpBU7iVNRQ.woff2
+- Source stylesheet: https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap (modern Chromium user agent)
+- Licence source: https://github.com/google/fonts/blob/main/ofl/archivo/OFL.txt
