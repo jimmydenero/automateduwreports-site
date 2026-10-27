@@ -37,3 +37,5 @@ The search included Max's profile, collections and related photographs, Curtis A
 - Licence source: https://github.com/google/fonts/blob/main/ofl/intertight/OFL.txt
 
 The site serves this file locally with `font-display: swap`; visitors make no Google Fonts requests. Photographic derivatives now include AVIF, WebP and JPEG at 360/640/960 pixels (desk also 1440); product screenshots use WebP/PNG at 360/640/800/1200/1600/2000 pixels. Original source photographs remain outside Git.
+
+Work item #2860 reuses the licensed Front photograph (Max Vakhtbovych, Pexels 7031406, source and Pexels License recorded above) inside the guided self-inspection concept. Derivatives: `self-inspection-{360,640,800}.{webp,png}`, composed from the HTML/CSS phone screen. No new stock photos were added. Carrier connections, form library and commercial drafting screens contain only original interface artwork and fictional text.
